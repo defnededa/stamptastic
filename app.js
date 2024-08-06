@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 
   let counter = 1;
-  let main_canvas_side = window.innerWidth / 2 - window.innerWidth / 10;
+  let main_canvas_side = window.innerWidth/1.8 - window.innerWidth / 10;
+  
+  let pixelcolor;
+  let is_opaque;
 
   function sketcher(ref, callback) {
     let functionName = "sketch" + counter;
@@ -45,6 +48,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     <div class="canvas-holder">
 
       <div class="canvas-holder-3">
+      
 
       <div class="buttons-holder">
 
@@ -71,11 +75,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         >Stamp</button>
         </div>
         </div>
-      <div ref="mainCanvas" class="main-canvas"></div>
+        <div ref="mainCanvas" class="main-canvas"></div>
       </div>
-      
-
-
+    
       <div class="canvas-holder-2">
 
       <div class="buttons-holder">
@@ -106,10 +108,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       </div>
       <button class="add-canvas-button" @click="saveMainCanvas">Download your art here</button>
       
-    
-      
-     
-
     
   </div>
     `,
@@ -228,6 +226,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
         }
       },
+        /*
+        console.log('Loop starting with stamps length:', this.stamps.length);
+        for (let i = this.stamps.length - 1; i >= 0; i--) {
+          const stamp = this.stamps[i];
+          if (
+            x > stamp.x - stamp.size / 2 &&
+            x < stamp.x + stamp.size / 2 &&
+            y > stamp.y - stamp.size / 2 &&
+            y < stamp.y + stamp.size / 2
+          ) {
+          //const relativeX = Math.floor(x - (stamp.x - stamp.size / 2));
+          //const relativeY = Math.floor(stamp.y - stamp.size / 2);
+
+          //find a way to change x y into stamp
+          tempCanvas = stamp.img;
+          pixelcolor = tempCanvas.get(stamp.x, stamp.y);
+          //console.log(stamp.x, stamp.y);
+          //console.log(x, y);
+          //console.log(relativeX, relativeY);
+          //console.log(pixelcolor);
+          if (pixelcolor[3] === 255){
+            is_opaque = true;
+            this.stamps.splice(i, 1);
+            this.redrawStamps();
+            break;
+          }
+          }
+        }
+      },
+      */
+      
       updateMainCanvasStamps() {
         this.stamps.forEach((stamp) => {
           stamp.img = this.canvasData[stamp.stampIndex];
@@ -266,7 +295,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
     },
     mounted() {
-      // Create the main canvas for applying stamps
       new p5((p) => {
         this.mainP = p;
         p.frameRate(30);

@@ -1,3 +1,4 @@
+
 body {
   display: flex;
   min-height: 100vh;
@@ -180,9 +181,10 @@ footer a:hover {
 }
 
 .main-canvas-button {
-  background-color: #390043;
-  color: #ffffff;
-  border: 2px solid transparent;
+  color: #390043;
+  
+  background-color: #ffffff;
+  border: 2px solid #390043;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 16px;
@@ -191,22 +193,22 @@ footer a:hover {
     box-shadow 0.3s;
 }
 .main-canvas-button:hover {
-  background-color: #ffffff;
-  color: #390043;
+  color: #ffffff;
+  background-color: #390043;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .main-canvas-button.highlighted {
-  border-color: #390043;
-  background-color: #ffffff;
-  color: #390043;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  background-color: #390043;
+  border: 2px solid #390043;
+  font-weight: bolder;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .small-canvas-button {
-  background-color: #390043;
-  color: #ffffff;
-  border: 2px solid transparent;
+  color: #390043;
+  background-color: #ffffff;
+  border: 2px solid #390043;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 16px;
@@ -221,8 +223,8 @@ footer a:hover {
 }
 .small-canvas-button.highlighted {
   border-color: #390043;
-  background-color: #ffffff;
-  color: #390043;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  background-color: #390043;
+  font-weight: bolder;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
